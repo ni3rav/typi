@@ -2,26 +2,87 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+body {
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  --sb-track-color: #232e33;
+  --sb-thumb-color: #af3939;
+  --sb-size: 7px;
+}
+
+body::-webkit-scrollbar {
+  width: var(--sb-size);
+}
+
+body::-webkit-scrollbar-track {
+  background: var(--sb-track-color);
+  border-radius: 7px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: var(--sb-thumb-color);
+  border-radius: 7px;
+}
+
+@supports not selector(::-webkit-scrollbar) {
+  body {
+    scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+  }
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 0%;
+    --foreground: 0 45.45% 91.37%;
+
+    --primary: 0 63.55% 41.96%;
+    --primary-foreground: 0 46.67% 94.12%;
+
+    --card: 0 21.43% 5.49%;
+    --card-foreground: 0 45.45% 91.37%;
+
+    --popover: 0 0% 0%;
+    --popover-foreground: 0 45.45% 91.37%;
+
+    --secondary: 0 62.67% 14.71%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 0 0% 9.8%;
+    --muted-foreground: 0 0% 50.2%;
+
+    --accent: 0 62.67% 14.71%;
+    --accent-foreground: 0 45.45% 91.37%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 0 62.79% 8.43%;
+    --input: 0 14.29% 19.22%;
+    --ring: 0 63.55% 41.96%;
+
+    --chart-1: 0 63.55% 41.96%;
+    --chart-2: 0 63.74% 35.69%;
+    --chart-3: 0 64.03% 27.25%;
+    --chart-4: 0 64.1% 22.94%;
+    --chart-5: 0 62.89% 19.02%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
   }
 }
