@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Space_Mono } from "next/font/google";
+import { Roboto_Mono } from "next/font/google";
 
 export const metadata: Metadata = {
   title: "TyPi",
   description: "A simple single player and multiplayer typing game",
 };
 
-const spaceMono = Space_Mono({ subsets: ["latin"], weight: ["400", "700"] });
+const fonts = Roboto_Mono({ subsets: ["latin"] });
 
 export default function RootLayout({
   children,
@@ -16,7 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${spaceMono.className} antialiased`}>{children}</body>
+      <body className={`${fonts.className} antialiased`}>{children}</body>
     </html>
   );
 }
