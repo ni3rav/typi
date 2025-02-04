@@ -41,38 +41,38 @@ body::-webkit-scrollbar-thumb {
 @layer base {
   :root {
     --background: 0 0% 0%;
-    --foreground: 0 45.45% 91.37%;
+    --foreground: 292 29.41% 90%;
 
-    --primary: 0 63.55% 41.96%;
-    --primary-foreground: 0 46.67% 94.12%;
+    --primary: 293.47 61.21% 32.35%;
+    --primary-foreground: 294 29.41% 93.33%;
 
-    --card: 0 21.43% 5.49%;
-    --card-foreground: 0 45.45% 91.37%;
+    --card: 285 15.38% 5.1%;
+    --card-foreground: 292 29.41% 90%;
 
     --popover: 0 0% 0%;
-    --popover-foreground: 0 45.45% 91.37%;
+    --popover-foreground: 292 29.41% 90%;
 
-    --secondary: 0 62.67% 14.71%;
+    --secondary: 293.33 62.07% 11.37%;
     --secondary-foreground: 0 0% 100%;
 
     --muted: 0 0% 9.8%;
     --muted-foreground: 0 0% 50.2%;
 
-    --accent: 0 62.67% 14.71%;
-    --accent-foreground: 0 45.45% 91.37%;
+    --accent: 293.33 62.07% 11.37%;
+    --accent-foreground: 292 29.41% 90%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 0 62.79% 8.43%;
-    --input: 0 14.29% 19.22%;
-    --ring: 0 63.55% 41.96%;
+    --border: 291.43 63.64% 6.47%;
+    --input: 289.09 11.83% 18.24%;
+    --ring: 293.47 61.21% 32.35%;
 
-    --chart-1: 0 63.55% 41.96%;
-    --chart-2: 0 63.74% 35.69%;
-    --chart-3: 0 64.03% 27.25%;
-    --chart-4: 0 64.1% 22.94%;
-    --chart-5: 0 62.89% 19.02%;
+    --chart-1: 293.47 61.21% 32.35%;
+    --chart-2: 293.72 61.43% 27.45%;
+    --chart-3: 293.54 60.75% 20.98%;
+    --chart-4: 293.45 60.44% 17.84%;
+    --chart-5: 293.48 62.16% 14.51%;
 
     --radius: 0.5rem;
   }
