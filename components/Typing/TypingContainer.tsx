@@ -4,7 +4,7 @@ import { TypingText } from "./TypingText";
 
 export function TypingContainer() {
   return (
-    <div className="w-full h-[85vh] flex flex-col justify-start items-center">
+    <div className="w-full h-[85vh] flex flex-col justify-center items-center gap-8">
       {/* for adjusting text and stuff */}
       <div className="w-9/12 bg-yellow-200 h-12"></div>
       {/* for adjusting text and stuff */}

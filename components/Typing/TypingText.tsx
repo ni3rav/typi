@@ -105,7 +105,7 @@ export const TypingText: React.FC<Props> = ({
   return (
     <div
       ref={containerRef}
-      className="relative flex items-center justify-center w-full h-[80vh] bg-gray-900"
+      className="relative flex items-center justify-center w-full h-[40vh] bg-gray-900"
     >
       <motion.div
         animate={{ filter: started ? "blur(0px)" : "blur(5px)" }}
