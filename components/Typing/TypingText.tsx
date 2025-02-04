@@ -118,7 +118,7 @@ export const TypingText: React.FC<Props> = ({
               {word.map((char, charIndex) => (
                 <span
                   key={charIndex}
-                  className={`text-2xl font-mono px-0.5 transition-colors duration-150 ${
+                  className={`text-2xl font-mono px-0.5 transition-all duration-150 ${
                     char.status === "waiting"
                       ? "text-gray-500"
                       : char.status === "correct"
@@ -148,7 +148,7 @@ export const TypingText: React.FC<Props> = ({
             </div>
             {wordIndex !== words.length - 1 && (
               <span
-                className={`text-2xl font-mono px-0.5 transition-colors duration-150 ${
+                className={`px-2 transition-all duration-150 ${
                   spaces[wordIndex] === "waiting"
                     ? "text-gray-500"
                     : spaces[wordIndex] === "correct"
@@ -177,7 +177,7 @@ export const TypingText: React.FC<Props> = ({
               transition={{ duration: 0.3, ease: "easeOut" }}
               className="text-xl text-blue-400 font-semibold font-mono"
             >
-              Click here or press any key to focus
+              Press any key to focus
             </motion.p>
           </motion.div>
         )}
