@@ -5,11 +5,18 @@ export default function TopBar() {
   const { wpm, accuracy, correctWords, totalWords } = useMetrics();
 
   return (
-    <div className="w-9/12 h-12 flex justify-between items-center px-4 bg-gray-800 text-white rounded-lg shadow-md">
-      <div>WPM: {Math.floor(wpm)}</div>
-      <div>Accuracy: {accuracy.toFixed(2)}%</div>
-      <div>
-        Words: {correctWords}/{totalWords}
+    <div className="w-fit h-10 flex items-center gap-6 px-6 py-2 bg-primary/20 backdrop-blur-md rounded-xl text-sm text-foreground">
+      <div className="font-medium">
+        WPM: <span className="font-bold">{Math.floor(wpm)}</span>
+      </div>
+      <div className="font-medium">
+        Accuracy: <span className="font-bold">{accuracy.toFixed(2)}%</span>
+      </div>
+      <div className="font-medium">
+        Words:{" "}
+        <span className="font-bold">
+          {correctWords}/{totalWords}
+        </span>
       </div>
     </div>
   );

@@ -153,7 +153,7 @@ export const TypingText: React.FC<Props> = ({
   return (
     <div
       ref={containerRef}
-      className="relative flex items-center justify-center w-full h-[40vh] bg-background"
+      className="relative flex items-center justify-center w-full h-[40vh] bg-transparent"
     >
       <motion.div
         animate={{ filter: started ? "blur(0px)" : "blur(5px)" }}
@@ -207,13 +207,13 @@ export const TypingText: React.FC<Props> = ({
             initial={{ opacity: 1 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="absolute inset-0 flex items-center justify-center bg-background bg-opacity-80"
+            className="absolute inset-0 flex items-center justify-center backdrop-blur-lg"
           >
             <motion.p
               initial={{ scale: 0.8 }}
               animate={{ scale: 1 }}
               transition={{ duration: 0.3, ease: "easeOut" }}
-              className="text-xl text-accent-foreground font-semibold font-mono"
+              className="text-2xl text-accent-foreground font-semibold"
             >
               Start typing to begin
             </motion.p>
