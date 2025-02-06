@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+---
 
-First, run the development server:
+# **TyPi - Multiplayer Typing Game** 🚀⌨️  
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+TyPi is a **real-time multiplayer typing game** where players can create a **room**, invite their friends, and compete to achieve the highest **WPM (words per minute)** and **accuracy**. Inspired by **MonkeyType**, TyPi offers a clean, minimal, and competitive typing experience.  
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## **🎮 Features**  
+✅ **Create & Join Rooms** – Play 1v1 with friends.  
+✅ **Live WPM & Accuracy Tracking** – Real-time stats updates.  
+✅ **Random Passages** – Every game has a new challenge.  
+✅ **Dark Mode Only** – Sleek UI with a focus on performance.  
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## **🛠 Local Setup Guide**  
 
-## Learn More
+Follow these steps to set up the project locally on your machine.  
 
-To learn more about Next.js, take a look at the following resources:
+### **Prerequisites**  
+- [Node.js](https://nodejs.org/) (v14 or higher)  
+- [pnpm](https://pnpm.io/) (v6 or higher)  
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### **Installation**  
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. **Clone the repository:**  
+    ```sh
+    git clone https://github.com/ni3rav/typi
+    cd typi
+    ```  
 
-## Deploy on Vercel
+2. **Install dependencies:**  
+    ```sh
+    pnpm install
+    ```  
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### **Running the Project**  
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. **Start the development server:**  
+    ```sh
+    pnpm start
+    ```  
+
+2. **Open your browser and navigate to:**  
+    ```
+    http://localhost:1812
+    ```  
+
+---
+
+## **📜 License**  
+This project is licensed under the **MIT License**.  
+
+---
+
+## **🚀 Contributing**  
+Pull requests are welcome! If you'd like to improve the project, feel free to fork and submit changes.  
+
+---
