@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useMetrics } from "@/context/MetricsContext";
 
@@ -20,46 +20,80 @@ export const TypingText: React.FC<Props> = ({
   const [started, setStarted] = useState(false);
   const [startTime, setStartTime] = useState<number | null>(null);
   const [typedChars, setTypedChars] = useState<string[]>([]);
+  const [completed, setCompleted] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
+  const restartTest = useCallback(() => {
     const wordsList = text.split(/\s+/g);
     const wordObjects = wordsList.map((word) => ({
       word,
       status: "waiting" as const,
     }));
+    const totalChars = wordsList.reduce((sum, word) => sum + word.length, 0);
+    const totalWords = wordsList.length;
+
     setWords(wordObjects);
+    setCurrentWordIndex(0);
+    setCurrentCharIndex(0);
+    setStarted(false);
+    setStartTime(null);
     setTypedChars(Array(text.length).fill(""));
-  }, [text]);
+    setCompleted(false);
+    setMetrics({
+      totalChars,
+      totalWords,
+      correctChars: 0,
+      incorrectChars: 0,
+      typedChars: 0,
+      correctWords: 0,
+      wpm: 0,
+      accuracy: 0,
+    });
+  }, [text, setMetrics]);
+
+  useEffect(() => {
+    restartTest();
+  }, [restartTest]);
+
+  useEffect(() => {
+    if (currentWordIndex >= words.length && words.length > 0) {
+      setCompleted(true);
+    }
+  }, [currentWordIndex, words.length]);
 
   useEffect(() => {
     const handleKeyPress = (e: KeyboardEvent) => {
+      if (completed) {
+        if (!e.metaKey && !e.ctrlKey) {
+          restartTest();
+        }
+        return;
+      }
+
       if (!started) {
         setStarted(true);
         setStartTime(Date.now());
         setMetrics((prev) => ({
           ...prev,
-          totalChars: words.reduce((sum, word) => sum + word.word.length, 0),
+          totalChars: words.reduce(
+            (sum, wordObj) => sum + wordObj.word.length,
+            0
+          ),
           totalWords: words.length,
         }));
       }
 
       if (e.key === " ") {
-        if (currentCharIndex === words[currentWordIndex].word.length) {
+        if (currentCharIndex === words[currentWordIndex]?.word.length) {
           const newWords = [...words];
-          newWords[currentWordIndex].status =
-            currentCharIndex === words[currentWordIndex].word.length
-              ? "correct"
-              : "incorrect";
+          newWords[currentWordIndex].status = "correct";
           setWords(newWords);
           setCurrentWordIndex((prev) => prev + 1);
           setCurrentCharIndex(0);
 
           setMetrics((prev) => ({
             ...prev,
-            correctWords:
-              prev.correctWords +
-              (newWords[currentWordIndex].status === "correct" ? 1 : 0),
+            correctWords: prev.correctWords + 1,
           }));
         }
         return;
@@ -148,6 +182,8 @@ export const TypingText: React.FC<Props> = ({
     started,
     startTime,
     setMetrics,
+    completed,
+    restartTest,
   ]);
 
   return (
@@ -216,6 +252,22 @@ export const TypingText: React.FC<Props> = ({
               className="text-2xl text-accent-foreground font-semibold"
             >
               Start typing to begin
+            </motion.p>
+          </motion.div>
+        )}
+        {completed && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="absolute inset-0 flex items-center justify-center backdrop-blur-lg"
+          >
+            <motion.p
+              initial={{ scale: 0.8 }}
+              animate={{ scale: 1 }}
+              className="text-2xl text-accent-foreground font-semibold"
+            >
+              Test completed! Start typing to restart.
             </motion.p>
           </motion.div>
         )}
